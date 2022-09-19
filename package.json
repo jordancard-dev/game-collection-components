@@ -1,0 +1,61 @@
+{
+  "name": "game-collection-components",
+  "version": "0.0.1",
+  "description": "A collection of components to build a game website",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "files": [
+    "dist/",
+    "www/",
+    "storybook-static/"
+  ],
+  "mpkg": [
+    "dist/**/*",
+    "www/**/*",
+    "storybook-static/**/*"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "build:watch": "stencil build --watch --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate",
+    "storybook:dev": "start-storybook -p 6006 -s ./dist --https --ssl-cert localhost.crt --ssl-key localhost.key",
+    "storybook": "npm run build && npm-run-all --parallel build:watch storybook:dev",
+    "build-storybook": "npm run build && build-storybook -s ./dist "
+  },
+  "dependencies": {
+    "@stencil/core": "^2.13.0",
+    "@stencil/sass": "^1.5.2",
+    "npm-run-all": "^4.1.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@storybook/addon-actions": "^6.5.10",
+    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/addon-interactions": "^6.5.10",
+    "@storybook/addon-links": "^6.5.10",
+    "@storybook/builder-webpack4": "^6.5.10",
+    "@storybook/html": "^6.5.10",
+    "@storybook/manager-webpack4": "^6.5.10",
+    "@storybook/testing-library": "0.0.13",
+    "@types/jest": "^27.0.3",
+    "babel-loader": "^8.2.5",
+    "jest": "^27.4.5",
+    "jest-cli": "^27.4.5",
+    "puppeteer": "^10.0.0",
+    "semantic-release": "^19.0.5",
+    "workbox-build": "^4.3.1"
+  },
+  "license": "MIT"
+}
