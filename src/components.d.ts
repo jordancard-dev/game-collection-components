@@ -11,6 +11,9 @@ export namespace Components {
     }
     interface GuxContentCard {
     }
+    interface GuxGamePlayer {
+        "unityLoaderPath": string;
+    }
     interface GuxHeader {
         "headerTitle": string;
     }
@@ -21,9 +24,6 @@ export namespace Components {
         "showSidebar": boolean;
     }
     interface GuxSidebar {
-    }
-    interface WebPlayer {
-        "unityLoaderPath": string;
     }
 }
 declare global {
@@ -38,6 +38,12 @@ declare global {
     var HTMLGuxContentCardElement: {
         prototype: HTMLGuxContentCardElement;
         new (): HTMLGuxContentCardElement;
+    };
+    interface HTMLGuxGamePlayerElement extends Components.GuxGamePlayer, HTMLStencilElement {
+    }
+    var HTMLGuxGamePlayerElement: {
+        prototype: HTMLGuxGamePlayerElement;
+        new (): HTMLGuxGamePlayerElement;
     };
     interface HTMLGuxHeaderElement extends Components.GuxHeader, HTMLStencilElement {
     }
@@ -63,20 +69,14 @@ declare global {
         prototype: HTMLGuxSidebarElement;
         new (): HTMLGuxSidebarElement;
     };
-    interface HTMLWebPlayerElement extends Components.WebPlayer, HTMLStencilElement {
-    }
-    var HTMLWebPlayerElement: {
-        prototype: HTMLWebPlayerElement;
-        new (): HTMLWebPlayerElement;
-    };
     interface HTMLElementTagNameMap {
         "gux-button": HTMLGuxButtonElement;
         "gux-content-card": HTMLGuxContentCardElement;
+        "gux-game-player": HTMLGuxGamePlayerElement;
         "gux-header": HTMLGuxHeaderElement;
         "gux-nav": HTMLGuxNavElement;
         "gux-page": HTMLGuxPageElement;
         "gux-sidebar": HTMLGuxSidebarElement;
-        "web-player": HTMLWebPlayerElement;
     }
 }
 declare namespace LocalJSX {
@@ -84,6 +84,9 @@ declare namespace LocalJSX {
         "buttonText"?: string;
     }
     interface GuxContentCard {
+    }
+    interface GuxGamePlayer {
+        "unityLoaderPath"?: string;
     }
     interface GuxHeader {
         "headerTitle"?: string;
@@ -96,17 +99,14 @@ declare namespace LocalJSX {
     }
     interface GuxSidebar {
     }
-    interface WebPlayer {
-        "unityLoaderPath"?: string;
-    }
     interface IntrinsicElements {
         "gux-button": GuxButton;
         "gux-content-card": GuxContentCard;
+        "gux-game-player": GuxGamePlayer;
         "gux-header": GuxHeader;
         "gux-nav": GuxNav;
         "gux-page": GuxPage;
         "gux-sidebar": GuxSidebar;
-        "web-player": WebPlayer;
     }
 }
 export { LocalJSX as JSX };
@@ -115,11 +115,11 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "gux-button": LocalJSX.GuxButton & JSXBase.HTMLAttributes<HTMLGuxButtonElement>;
             "gux-content-card": LocalJSX.GuxContentCard & JSXBase.HTMLAttributes<HTMLGuxContentCardElement>;
+            "gux-game-player": LocalJSX.GuxGamePlayer & JSXBase.HTMLAttributes<HTMLGuxGamePlayerElement>;
             "gux-header": LocalJSX.GuxHeader & JSXBase.HTMLAttributes<HTMLGuxHeaderElement>;
             "gux-nav": LocalJSX.GuxNav & JSXBase.HTMLAttributes<HTMLGuxNavElement>;
             "gux-page": LocalJSX.GuxPage & JSXBase.HTMLAttributes<HTMLGuxPageElement>;
             "gux-sidebar": LocalJSX.GuxSidebar & JSXBase.HTMLAttributes<HTMLGuxSidebarElement>;
-            "web-player": LocalJSX.WebPlayer & JSXBase.HTMLAttributes<HTMLWebPlayerElement>;
         }
     }
 }
