@@ -1,5 +1,4 @@
 export default {
-    // this creates a ‘Components’ folder and a ‘MyComponent’ subfolder
     title: 'Components/Game Player',
 };
 
