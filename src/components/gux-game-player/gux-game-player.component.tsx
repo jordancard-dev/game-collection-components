@@ -88,8 +88,8 @@ export class GamePlayer {
 
   render() {
     return <div>
+
       <div id={this.containerId}>{this.unityLoaderPath}</div>
-      <h2>{this.gameTitle}</h2>
       {
         (!!this.isLoaded()) &&
         <div>

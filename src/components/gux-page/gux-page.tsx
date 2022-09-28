@@ -7,23 +7,20 @@ import { Component, Prop, h, State, Watch, Host } from '@stencil/core';
     shadow: false,
 })
 export class GamePage {
-    @Prop() pageTitle: string;
-    @Prop() showSidebar: boolean;
-
     @State() titleState: string;
-    @State() showSidebarState: boolean;
+    @State() showSidebarState: boolean = false;
 
-    constructor() {
-
-    }
-
+    @Prop() pageTitle: string;
     @Watch('pageTitle')
     setPageTitle() {
         this.titleState = this.pageTitle;
     }
 
+    @Prop() showSidebar: boolean;
     @Watch('showSidebar')
     setShowSidebar() {
+
+        this.showSidebarState = this.showSidebar;
     }
 
     componentWillLoad() {
@@ -40,20 +37,14 @@ export class GamePage {
 
             <div class="row">
                 {
-                    this.showSidebarState ??
+                    !!this.showSidebarState &&
                     <div class="side">
-                        <h2>About Me</h2>
-                        <h5>Photo of me:</h5>
-                        <div class="fakeimg" style={{ 'height': '200px' }}>Image</div>
-                        <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-                        <h3>More Text</h3>
-                        <p>Lorem ipsum dolor sit ame.</p>
-                        <div class="fakeimg" style={{ 'height': '60px' }}>Image</div>
-                        <div class="fakeimg" style={{ 'height': '60px' }}>Image</div>
-                        <div class="fakeimg" style={{ 'height': '60px' }}>Image</div>
+                        <slot name='sideContent'>
+
+                        </slot>
                     </div>
                 }
-                <div class="main">
+                <div class={{ "main": !!this.showSidebarState, "main-no-side-bar": !this.showSidebarState }}>
                     <slot name='mainContent'>
 
                     </slot>

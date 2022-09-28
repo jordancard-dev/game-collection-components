@@ -4,6 +4,7 @@
 .row {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 /* Create two unequal columns that sits next to each other */
@@ -17,6 +18,12 @@
 /* Main column */
 .main {
     flex: 70%;
+    background-color: white;
+    padding: 20px;
+}
+
+.main-no-side-bar {
+    flex: 100%;
     background-color: white;
     padding: 20px;
 }
