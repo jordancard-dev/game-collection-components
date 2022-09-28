@@ -12,6 +12,10 @@ export namespace Components {
     interface GuxContentCard {
     }
     interface GuxGamePlayer {
+        "gameTitle": string;
+        "onFullScreen": () => Promise<void>;
+        "onSendMessage": (gameObject: any, method: any, param: any) => Promise<void>;
+        "source": string;
         "unityLoaderPath": string;
     }
     interface GuxHeader {
@@ -86,6 +90,8 @@ declare namespace LocalJSX {
     interface GuxContentCard {
     }
     interface GuxGamePlayer {
+        "gameTitle"?: string;
+        "source"?: string;
         "unityLoaderPath"?: string;
     }
     interface GuxHeader {
