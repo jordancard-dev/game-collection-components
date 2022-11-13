@@ -29,6 +29,20 @@ export namespace Components {
     }
     interface GuxSidebar {
     }
+    interface GuxUploader {
+        "gameBannerPath": string;
+        "gameCategory": string;
+        "gameDescription": string;
+        "gameDeveloper": string;
+        "gameFilesPath": string;
+        "gameIconPath": string;
+        "gameTitle": string;
+        "htmlGame": boolean;
+    }
+}
+export interface GuxUploaderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGuxUploaderElement;
 }
 declare global {
     interface HTMLGuxButtonElement extends Components.GuxButton, HTMLStencilElement {
@@ -73,6 +87,12 @@ declare global {
         prototype: HTMLGuxSidebarElement;
         new (): HTMLGuxSidebarElement;
     };
+    interface HTMLGuxUploaderElement extends Components.GuxUploader, HTMLStencilElement {
+    }
+    var HTMLGuxUploaderElement: {
+        prototype: HTMLGuxUploaderElement;
+        new (): HTMLGuxUploaderElement;
+    };
     interface HTMLElementTagNameMap {
         "gux-button": HTMLGuxButtonElement;
         "gux-content-card": HTMLGuxContentCardElement;
@@ -81,6 +101,7 @@ declare global {
         "gux-nav": HTMLGuxNavElement;
         "gux-page": HTMLGuxPageElement;
         "gux-sidebar": HTMLGuxSidebarElement;
+        "gux-uploader": HTMLGuxUploaderElement;
     }
 }
 declare namespace LocalJSX {
@@ -105,6 +126,20 @@ declare namespace LocalJSX {
     }
     interface GuxSidebar {
     }
+    interface GuxUploader {
+        "gameBannerPath"?: string;
+        "gameCategory"?: string;
+        "gameDescription"?: string;
+        "gameDeveloper"?: string;
+        "gameFilesPath"?: string;
+        "gameIconPath"?: string;
+        "gameTitle"?: string;
+        "htmlGame"?: boolean;
+        "onBannerfileselected"?: (event: GuxUploaderCustomEvent<any>) => void;
+        "onGamefilesuploaded"?: (event: GuxUploaderCustomEvent<any>) => void;
+        "onGamesubmitted"?: (event: GuxUploaderCustomEvent<any>) => void;
+        "onIconimageselected"?: (event: GuxUploaderCustomEvent<any>) => void;
+    }
     interface IntrinsicElements {
         "gux-button": GuxButton;
         "gux-content-card": GuxContentCard;
@@ -113,6 +148,7 @@ declare namespace LocalJSX {
         "gux-nav": GuxNav;
         "gux-page": GuxPage;
         "gux-sidebar": GuxSidebar;
+        "gux-uploader": GuxUploader;
     }
 }
 export { LocalJSX as JSX };
@@ -126,6 +162,7 @@ declare module "@stencil/core" {
             "gux-nav": LocalJSX.GuxNav & JSXBase.HTMLAttributes<HTMLGuxNavElement>;
             "gux-page": LocalJSX.GuxPage & JSXBase.HTMLAttributes<HTMLGuxPageElement>;
             "gux-sidebar": LocalJSX.GuxSidebar & JSXBase.HTMLAttributes<HTMLGuxSidebarElement>;
+            "gux-uploader": LocalJSX.GuxUploader & JSXBase.HTMLAttributes<HTMLGuxUploaderElement>;
         }
     }
 }
