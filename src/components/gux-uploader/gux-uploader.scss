@@ -1,0 +1,18 @@
+@import '../../global/base.scss';
+
+
+
+.game-uploader-form-container {
+    display: flex;
+    flex-direction: column;
+
+    button {
+        background-color: var(--gux-gold);
+        border: 1px solid var(--gux-grey);
+        color: var(--gux-white);
+        padding: 15px 32px;
+        text-align: center;
+
+        font-size: 16px;
+    }
+}
