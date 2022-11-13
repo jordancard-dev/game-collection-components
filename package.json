@@ -36,8 +36,6 @@
     "build-storybook": "npm run build && build-storybook -s ./dist "
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.209.0",
-    "@aws-sdk/s3-request-presigner": "^3.188.0",
     "@stencil/core": "^2.13.0",
     "@stencil/sass": "^1.5.2",
     "aws-sdk": "^2.1233.0",
@@ -45,6 +43,8 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@aws-sdk/client-s3": "^3.209.0",
+    "@aws-sdk/s3-request-presigner": "^3.188.0",
     "@babel/core": "^7.18.13",
     "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
