@@ -10,6 +10,9 @@ export namespace Components {
         "buttonText": string;
     }
     interface GuxContentCard {
+        "description": string;
+        "imageUrl": string;
+        "titleName": string;
     }
     interface GuxGamePlayer {
         "gameTitle": string;
@@ -39,6 +42,10 @@ export namespace Components {
         "gameTitle": string;
         "htmlGame": boolean;
     }
+}
+export interface GuxContentCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGuxContentCardElement;
 }
 export interface GuxUploaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -109,6 +116,10 @@ declare namespace LocalJSX {
         "buttonText"?: string;
     }
     interface GuxContentCard {
+        "description"?: string;
+        "imageUrl"?: string;
+        "onMoreClick"?: (event: GuxContentCardCustomEvent<any>) => void;
+        "titleName"?: string;
     }
     interface GuxGamePlayer {
         "gameTitle"?: string;

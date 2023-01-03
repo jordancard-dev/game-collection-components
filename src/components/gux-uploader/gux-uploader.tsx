@@ -73,7 +73,6 @@ export class GameUploader {
     onGameCategoryChange(event = null) {
         if (!!event) {
             const { target: { value } } = event;
-            console.log(`Value ${value}`)
             this.gameState = { ...this.gameState, ...{ gameCategory: value } }
         } else {
             this.gameState = { ...this.gameState, ...{ gameCategory: this.gameCategory } }
@@ -108,7 +107,6 @@ export class GameUploader {
     @Watch('gameIconPath')
     onGameIconPathUpdate(event) {
         if (!!event) {
-            console.log('from stencil with love', event)
             const { target: { files } } = event;
             this.iconimageselected.emit({
                 files
@@ -122,7 +120,6 @@ export class GameUploader {
     @Watch('gameFilesPath')
     onGameFilesPathUpdate(event) {
         if (!!event) {
-            console.log('asdasd')
             const { target: { files } } = event;
             this.gamefilesuploaded.emit({
                 files
