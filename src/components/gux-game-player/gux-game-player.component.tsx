@@ -89,13 +89,16 @@ export class GamePlayer {
   render() {
     return <div>
 
-      <div id={this.containerId}>{this.unityLoaderPath}</div>
-      {
-        (!!this.isLoaded()) &&
-        <div>
-          <gux-button onClick={() => this.onFullScreen()} buttonText="FULLSCREEN"></gux-button>
-        </div>
-      }
+      <div class="webgl-content">
+        <div class="gux-game-container" id={this.containerId}>{this.unityLoaderPath}</div>
+        {
+          (!!this.isLoaded()) &&
+          <div>
+            <gux-button onClick={() => this.onFullScreen()} buttonText="FULLSCREEN"></gux-button>
+          </div>
+        }
+
+      </div>
     </div>;
   }
 }

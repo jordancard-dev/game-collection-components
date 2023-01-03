@@ -9,7 +9,13 @@ export default {
 
 const Template = () => {
     return `
-    <gux-page> </gux-page>
+    <gux-page> 
+        <div slot="mainContent">
+            <p> 
+                this is the main content
+            </p>
+        </div>
+    </gux-page>
 ` };
 
 export const LoggedOut = Template.bind({});
