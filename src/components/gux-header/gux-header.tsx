@@ -23,7 +23,9 @@ export class GamePageHeader {
 
             <div class="header">
                 <h1>{this.titleState}</h1>
-                <p>With a <b>flexible</b> layout.</p>
+                <slot name="subtitle">
+
+                </slot>
             </div>
         </Host>
     }
